@@ -1,11 +1,12 @@
-import math
 import sys
 sys.setrecursionlimit(10000000)
+
 
 class Node:
     def __init__(self, idx):
         self.idx = idx
         self.parent = None
+
 
 def unite(x: Node, y: Node, nodes):
     """xを含む集合とyを含む集合を併合"""
@@ -32,12 +33,14 @@ def same(x: Node, y: Node):
     else:
         return 0
 
+
 def root(x: Node, cnt: int):
     """Node xの所属する木の根を探索"""
     if x.parent is None:
         return x, cnt
     else:
         return root(x.parent, cnt + 1)
+
 
 def main():
     n, q = map(int, input().split())
@@ -54,9 +57,6 @@ def main():
         else:
             # is x and y belonging the same tree
             print(same(nodes[x], nodes[y]))
-
-
-    
 
 
 if __name__ == '__main__':
