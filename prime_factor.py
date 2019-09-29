@@ -1,7 +1,5 @@
 """素因数分解のプログラム O(N**0.5)"""
 
-import numpy as np
-import math
 import sys
 sys.setrecursionlimit(10000000)
 
@@ -19,6 +17,7 @@ def prime_factor(N):
     if N != 1:
         factors[N] = 1
     return factors
+
 
 def main():
     N = int(input())
