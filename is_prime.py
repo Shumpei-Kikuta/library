@@ -1,7 +1,3 @@
-import sys
-sys.setrecursionlimit(10000000)
-
-
 def is_prime(N):
     """Nを2~int(N**0.5)までで割る"""
     for i in range(2, int(N**0.5)+1):
