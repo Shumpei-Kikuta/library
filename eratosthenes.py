@@ -1,5 +1,6 @@
 """N以下の素数を列挙、N以下の素数の数 O(NloglogN) (ほぼO(N))"""
 
+
 def calc_eratosthenes(N):
     is_primes = [True] * (N + 1)
     is_primes[0], is_primes[1] = False, False
