@@ -2,10 +2,12 @@
 
 INF = 10**10
 
+
 def initialize_adjlists(lists, V):
     for i in range(V):
         lists[i] = []
     return lists
+
 
 def shortest_path(shortest_paths, adjacency_lists):
     update = True
@@ -21,10 +23,11 @@ def shortest_path(shortest_paths, adjacency_lists):
         update = False
         for from_ in adjacency_lists:
             for to_, w in adjacency_lists[from_]:
-                if shortest_paths[from_] != INF and shortest_paths[to_] > shortest_paths[from_] + w:
+                if shortest_paths[from_] != INF \
+                  and shortest_paths[to_] > shortest_paths[from_] + w:
                     shortest_paths[to_] = shortest_paths[from_] + w
                     update = True
-    
+
     return shortest_paths, None
 
 
@@ -45,7 +48,7 @@ def main():
         for i in shortest_paths:
             if i == INF:
                 print("INF")
-            else:    
+            else:
                 print(i)
 
 
