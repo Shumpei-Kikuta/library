@@ -1,12 +1,7 @@
 """負の辺がある場合に利用。負の閉路の検出も可能 O(V * E)"""
+from util import initialize_adjlists
 
 INF = 10**10
-
-
-def initialize_adjlists(lists, V):
-    for i in range(V):
-        lists[i] = []
-    return lists
 
 
 def shortest_path(shortest_paths, adjacency_lists):
