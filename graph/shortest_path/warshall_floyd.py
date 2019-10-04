@@ -38,7 +38,7 @@ def warshall_floyd(adjacency_lists: list):
     for k in range(V):
         for i in range(V):
             for j in range(V):
-                dp[i][j]= min(dp[i][k] + dp[k][j], dp[i][j])
+                dp[i][j] = min(dp[i][k] + dp[k][j], dp[i][j])
     return dp
 
 
@@ -49,7 +49,7 @@ def main():
     for _ in range(E):
         from_, to_, w = map(int, input().split())
         adjacency_lists[from_].append((to_, w))
-    
+
     dp = warshall_floyd(adjacency_lists)
 
     if check(dp):
