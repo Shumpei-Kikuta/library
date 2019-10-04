@@ -1,3 +1,5 @@
+"""全始点からの最短距離行列の計算"""
+
 from util import initialize_adjlists
 
 INF = 10 ** 12
