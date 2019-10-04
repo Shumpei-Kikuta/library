@@ -34,7 +34,7 @@ def dijakstra(adjacency_lists: dict, start: int):
 
 def main():
     V, E, start = map(int, input().split())
-    adjacency_lists = {} # key: node, value: (node, weight)
+    adjacency_lists = {}  # key: node, value: (node, weight)
     adjacency_lists = initialize_adjlists(adjacency_lists, V)
 
     for _ in range(E):
@@ -47,7 +47,7 @@ def main():
         if distances[i] >= INF:
             print("INF")
         else:
-            print(distances[i])   
+            print(distances[i])
 
 
 if __name__ == '__main__':
