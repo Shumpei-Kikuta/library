@@ -13,12 +13,12 @@ def dijakstra(adjacency_lists: dict, start: int):
     done_searchs = [False] * V
 
     priority_queues = []
-    heappush(priority_queues, start)
+    heappush(priority_queues, (0, start))
     done_searchs[start] = True
     distances[start] = 0
 
     while (len(priority_queues) != 0):
-        node = heappop(priority_queues)
+        _, node = heappop(priority_queues)
         next_nodes = adjacency_lists[node]
         for next_node, w in next_nodes:
             if done_searchs[next_node]:
@@ -27,7 +27,7 @@ def dijakstra(adjacency_lists: dict, start: int):
                 if distances[next_node] > distances[node] + w:
                     distances[next_node] = distances[node] + w
                     parents[next_node] = node
-                    heappush(priority_queues, next_node)
+                    heappush(priority_queues, (distances[next_node], next_node))
 
     return distances, parents
 
