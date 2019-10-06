@@ -1,4 +1,6 @@
 """クラスカル法"""
+
+
 class Node:
     def __init__(self, idx):
         self.idx = idx
@@ -38,6 +40,7 @@ def root(x: Node, cnt: int):
     else:
         return root(x.parent, cnt + 1)
 
+
 def initialize_adjlists(lists, V):
     for i in range(V):
         lists[i] = []
@@ -73,8 +76,7 @@ def kuraskal(adjacency_lists: dict):
             nodes = unite(nodes[from_], nodes[to_], nodes)
             num += weight
     return num
-    
-    
+
 
 def main():
     V = int(input())
