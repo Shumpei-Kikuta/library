@@ -1,7 +1,9 @@
 """ユークリッドの互除法"""
 
+
 def swap(a, b):
     return b, a
+
 
 def gcd(a, b):
     X = max(a, b)
@@ -12,6 +14,7 @@ def gcd(a, b):
         X, Y = swap(X, Y)
         step += 1
     return X, step
+
 
 def main():
     while(True):
