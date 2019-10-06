@@ -32,7 +32,6 @@ def prim(adjacency_lists: dict) -> int:
             else:
                 heappush(priority_queues, (w, next_node))
 
-
     return num
 
 
