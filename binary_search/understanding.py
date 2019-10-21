@@ -6,6 +6,7 @@ upper_bound(A, k); はじめてkより大きくなるindex
 
 import bisect
 
+
 def main():
     """
     配列の中にkが1つ存在するケース
