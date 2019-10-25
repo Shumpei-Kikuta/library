@@ -1,6 +1,3 @@
-import sys
-sys.setrecursionlimit(10000000)
-
 INF = 2 ** 31 - 1
 
 
@@ -17,17 +14,17 @@ class SegmentTree():
         return the minimum value between the index of from_ and to_
         k: which node to look at
         """
-        if from_ >= left and to_ <= right:
+        if from_ <= left and to_ >= right:
             # include
             return self.nodes[k]
 
-        elif from_ >= left or to_ <= left:
-            # partially include
-            mid = (left + right) // 2
-            return min(self.find(from_, to_, k * 2, left, mid), self.find(from_, to_, k * 2 + 1, mid+1, right))
-        else:
+        elif from_ > right or to_ < left:
             # exclude
             return INF
+        else:
+            # partially include
+            mid = (left + right) // 2
+            return min(self.find(from_, to_, k * 2 + 1, left, mid), self.find(from_, to_, k * 2 + 2, mid+1, right))
 
 
     def update(self, i, x):
@@ -36,11 +33,9 @@ class SegmentTree():
         """
         i += self.N - 1
         self.nodes[i] = x
-        while (True):
+        while (i > 0):
             i = (i - 1) // 2
             self.nodes[i] = min(self.nodes[i * 2 + 2], self.nodes[i * 2 + 1])
-            if i == 0:
-                break
 
 
 def main():
@@ -53,7 +48,7 @@ def main():
         else:
             if x > y:
                 x, y = y, x
-            min_ = segment_tree.find(x, y, 1, 1, n)
+            min_ = segment_tree.find(x, y, 0, 0, segment_tree.N - 1)
             print(min_)
 
 
